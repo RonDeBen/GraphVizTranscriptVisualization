@@ -17,9 +17,8 @@ public class Course {
         this.preReqs = preReqs;
         this.coReqs = coReqs;
         available = false;
-    }
-
-        
+    }   
+    
     public String getTitle() {
         return title;
     }
@@ -28,6 +27,11 @@ public class Course {
         return subj;
     }
    
+    
+     public String getStatus() {
+        return status;
+    }
+     
     public void setTitle(String title) {
         this.title = title;
     }
@@ -35,4 +39,9 @@ public class Course {
     public void setSubj(String subj) {
         this.subj = subj;
     }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
 }

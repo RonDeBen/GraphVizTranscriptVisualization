@@ -15,14 +15,11 @@ public class main {
         Scanner fileScan = new Scanner(new File("transcript.txt"));
         outFile = new PrintWriter (new FileWriter ("transcript2.txt"));
         
-        Student stud = new Student(fileScan);
+        Courses c = new Courses();
+        c.read(fileScan);
+        System.out.println(c.getCourseByName("CSC_135").getTitle());
         
-        DotWriter dw = new DotWriter();
-        String s = "";
-        s = dw.write(stud);
-        System.out.print(s);
-        
-        outFile.println(s);
+        outFile.println("");
         outFile.close();
     }
 }

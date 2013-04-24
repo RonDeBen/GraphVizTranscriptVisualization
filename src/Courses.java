@@ -1,10 +1,11 @@
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Courses {
     
-    ArrayList<Course> c = new ArrayList<Course>();
+    private ArrayList<Course> c = new ArrayList<Course>();
     
     public Courses(){
         //I. ENGLISH COMPOSITION(6 hrs)
@@ -63,9 +64,8 @@ public class Courses {
     }
     
     public Course getCourseByName(String name){
-        boolean searching = true;
         int i = 0;
-        while(searching && i < c.size()-1){
+        while(i < c.size()-1){
             if(c.get(i).getTitle() == name){
                 return c.get(i);
             }
@@ -74,12 +74,10 @@ public class Courses {
         return null;
      }
     
-    
-    
-    
-    
-    
-    
+    public void read(Scanner fileScan){
+        while(fileScan.hasNext())
+                getCourseByName("ENGL_105").setStatus(fileScan.next().toString());
+            }
 }
     
     
