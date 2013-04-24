@@ -1,0 +1,50 @@
+digraph g {
+	NO_REQUIREMENTS -> ENGL_105 @
+	ENGL_105 -> ENGL_115 @
+	
+	
+	MATH_121 -> MATH_221 @
+	MATH_122 -> MATH_221 @
+	MATH_221 -> MATH_222 @
+	
+	
+	
+	
+	
+	
+	ENGL_105 -> COMM_135 @
+	
+	
+	
+	MATH_121 -> MATH_201 @
+	MATH_221 -> MATH_254 @
+	MATH_121 -> MATH_260 @
+	CSC_115 -> MATH_260 @
+	ENGL_115 -> ENGL_325 @
+	CSC_115 -> CSC_135 @
+	CSC_135 -> CSC_145 @
+	CSC_145 -> CSC_285 @ 
+	 MATH_201 -> CSC_285
+	CSC_135 -> CSC_242 @
+	CSC_145 -> CSC_315 @
+	 MATH_201 -> CSC_315 @
+	CSC_145 -> CSC_345 @
+	CSC_345 -> CSC_346 @
+	CSC_242 -> CSC_382 @
+	CSC_345 -> CSC_405 @
+	CSC_345 -> CSC_460 @
+	CSC_345 -> CSC_480 @
+	CSC_480 -> CSC_481 @
+	 CSC_315 -> CSC_481 @
+	 CSC_460 -> CSC_481 @
+	CSC_345 -> CSC_485 @
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
