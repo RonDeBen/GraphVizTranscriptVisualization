@@ -13,7 +13,7 @@ public class main {
     public static void main(String[] args) throws IOException {
         
         Scanner fileScan = new Scanner(new File("transcript.txt"));
-        outFile = new PrintWriter (new FileWriter ("transcript2.txt"));
+        outFile = new PrintWriter (new FileWriter ("transcript.dot"));
         
         Courses c = new Courses();
         DotWriter dw = new DotWriter(c);
