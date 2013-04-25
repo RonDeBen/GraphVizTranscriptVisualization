@@ -1,8 +1,3 @@
-
-import java.lang.String;
-import java.util.ArrayList;
-
-
 public class Course {
     String title = "";
     String subj = "";
@@ -24,9 +19,6 @@ public class Course {
         return "Course{" + "title=" + title + ", subj=" + subj + ", status=" + status + ", preReqs=" + preReqs + ", coReqs=" + coReqs + ", available=" + available + '}';
     }
     
-    
-    
-    
     public String getTitle() {
         return title;
     }
@@ -39,6 +31,18 @@ public class Course {
      public String getStatus() {
         return status;
     }
+
+    public String getCoReqs() {
+        return coReqs;
+    }
+
+    public String getPreReqs() {
+        return preReqs;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
      
     public void setTitle(String title) {
         this.title = title;
@@ -50,6 +54,18 @@ public class Course {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public void setPreReqs(String preReqs) {
+        this.preReqs = preReqs;
+    }
+
+    public void setCoReqs(String coReqs) {
+        this.coReqs = coReqs;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
     
 }

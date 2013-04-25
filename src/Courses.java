@@ -17,7 +17,9 @@ public class Courses {
        c.add(new Course("S/BS", "GRID", "NONE", "NONE"));//special case- make exception for it
        
        //III. Mathematics(8 hrs.)
-       c.add(new Course("MATH_221", "MATH", "MATH_121,MATH_122", "NONE"));
+       c.add(new Course("MATH_121", "MATH", "NONE", "NONE"));//not in curriculum
+       c.add(new Course("MATH_122", "MATH", "MATH_121", "NONE"));//not in curriculum
+       c.add(new Course("MATH_221", "MATH", "NONE", "NONE"));//MATH_121,MATH_122
        c.add(new Course("MATH_222", "MATH", "MATH_221", "NONE"));
        
        //IV. Natural Sciences(9 hrs. GE) & (2hrs ABET)
@@ -38,7 +40,6 @@ public class Courses {
        c.add(new Course("General_Electives", "GRID", "NONE", "NONE"));
        
        //Program Requirements (46 hrs.)
-       
        c.add(new Course("CSC_115", "CSC", "NONE", "NONE"));//not in curriculum
        c.add(new Course("CSC_120", "CSC", "CSC_115", "MATH_121"));//not in curriculum
        
@@ -64,7 +65,7 @@ public class Courses {
        c.add(new Course("SCIENCE", "GRID", "NONE", "NONE"));//FIX THIS SHIT, BRAH
        c.add(new Course("MATH_201", "MATH", "MATH_121", "NONE"));
        c.add(new Course("MATH_254", "MATH", "MATH_221", "NONE"));
-       c.add(new Course("MATH_260", "MATH", "MATH121,CSC_115", "NONE"));
+       c.add(new Course("MATH_260", "MATH", "MATH_121,CSC_115", "NONE"));
     }
     
     public Course getCourseByName(String name){
@@ -85,6 +86,22 @@ public class Courses {
 }
     public void write(){
         for(int k = 0; k < c.size(); k++){ System.out.println(c.get(k));}
+    }
+    
+    public void findAvailableClasses(){
+       // String[] temp = null;
+        for(int k = 0; k < c.size(); k++){
+            if(!c.get(k).getPreReqs().equalsIgnoreCase("NONE")){
+                String[] temp = c.get(k).getPreReqs().split(",");
+                c.get(k).setAvailable(true);
+                for(int j = 0; j < temp.length; j++){
+                    if(!getCourseByName(temp[j]).getStatus().equalsIgnoreCase("2")){
+                        c.get(k).setAvailable(false);
+                    }
+                }
+            }
+        }
+        
     }
 }
     

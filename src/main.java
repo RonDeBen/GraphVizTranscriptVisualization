@@ -17,6 +17,8 @@ public class main {
         
         Courses c = new Courses();
         c.read(fileScan);
+        c.findAvailableClasses();
+        c.findAvailableClasses();
         c.write();
         
         outFile.println("");
