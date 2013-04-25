@@ -16,12 +16,16 @@ public class main {
         outFile = new PrintWriter (new FileWriter ("transcript2.txt"));
         
         Courses c = new Courses();
+        DotWriter dw = new DotWriter(c);
+        
         c.read(fileScan);
         c.findAvailableClasses();
-        c.findAvailableClasses();
-        c.write();
         
-        outFile.println("");
+        String s = dw.write();
+        
+        System.out.println(s);
+        
+        outFile.println(s);
         outFile.close();
     }
 }

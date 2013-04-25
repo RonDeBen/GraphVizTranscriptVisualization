@@ -5,21 +5,21 @@ import java.util.Scanner;
 
 public class Courses {
     
-    private ArrayList<Course> c = new ArrayList<Course>();
+    public ArrayList<Course> c = new ArrayList<Course>();
     
     public Courses(){
-        //I. ENGLISH COMPOSITION(6 hrs)
+       //I. ENGLISH COMPOSITION(6 hrs)
        c.add(new Course("ENGL_105", "ENGL", "NONE", "NONE"));
        c.add(new Course("ENGL_115", "ENGL", "ENGL_105", "NONE"));
        
        //II.Social/Behavioral Sciences (6 hrs.) must be from two different disciplines 
        c.add(new Course("ECON_2XX", "ECO", "MATH_121", "NONE"));
-       c.add(new Course("S/BS", "GRID", "NONE", "NONE"));//special case- make exception for it
+       c.add(new Course("SBS", "GRID", "NONE", "NONE"));//special case- make exception for it
        
        //III. Mathematics(8 hrs.)
        c.add(new Course("MATH_121", "MATH", "NONE", "NONE"));//not in curriculum
        c.add(new Course("MATH_122", "MATH", "MATH_121", "NONE"));//not in curriculum
-       c.add(new Course("MATH_221", "MATH", "NONE", "NONE"));//MATH_121,MATH_122
+       c.add(new Course("MATH_221", "MATH", "MATH_121,MATH_122", "NONE"));
        c.add(new Course("MATH_222", "MATH", "MATH_221", "NONE"));
        
        //IV. Natural Sciences(9 hrs. GE) & (2hrs ABET)
@@ -58,7 +58,7 @@ public class Courses {
        c.add(new Course("CSC_485", "CSC", "CSC_345", "NONE"));
        
        //Electives(9 hrs.)
-       c.add(new Course("CSC_400+", "GRID", "NONE", "NONE"));
+       c.add(new Course("CSC_400", "GRID", "NONE", "NONE"));// do special stuff with this one
        
        //Additional Degree Requirements(15 hrs.)
        c.add(new Course("ENGL_325", "ENGL", "ENGL_115", "NONE"));
@@ -66,6 +66,10 @@ public class Courses {
        c.add(new Course("MATH_201", "MATH", "MATH_121", "NONE"));
        c.add(new Course("MATH_254", "MATH", "MATH_221", "NONE"));
        c.add(new Course("MATH_260", "MATH", "MATH_121,CSC_115", "NONE"));
+    }
+
+    public ArrayList<Course> getC() {
+        return c;
     }
     
     public Course getCourseByName(String name){
@@ -89,11 +93,11 @@ public class Courses {
     }
     
     public void findAvailableClasses(){
-       // String[] temp = null;
+         String[] temp = null;
         for(int k = 0; k < c.size(); k++){
+            c.get(k).setAvailable(true);
             if(!c.get(k).getPreReqs().equalsIgnoreCase("NONE")){
-                String[] temp = c.get(k).getPreReqs().split(",");
-                c.get(k).setAvailable(true);
+                temp = c.get(k).getPreReqs().split(",");
                 for(int j = 0; j < temp.length; j++){
                     if(!getCourseByName(temp[j]).getStatus().equalsIgnoreCase("2")){
                         c.get(k).setAvailable(false);
