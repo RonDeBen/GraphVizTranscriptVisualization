@@ -13,12 +13,12 @@ public class Courses {
        c.add(new Course("ENGL_115", "ENGL", "ENGL_105", "NONE"));
        
        //II.Social/Behavioral Sciences (6 hrs.) must be from two different disciplines 
-       c.add(new Course("ECON_2XX", "ECO", "NONE", "NONE"));
+       c.add(new Course("ECON_2XX", "ECO", "MATH_121", "NONE"));
        c.add(new Course("S/BS", "GRID", "NONE", "NONE"));//special case- make exception for it
        
        //III. Mathematics(8 hrs.)
-       c.add(new Course("MATH_221", "MATH", "NONE", "NONE"));
-       c.add(new Course("MATH_222", "MATH", "NONE", "NONE"));
+       c.add(new Course("MATH_221", "MATH", "MATH_121,MATH_122", "NONE"));
+       c.add(new Course("MATH_222", "MATH", "MATH_221", "NONE"));
        
        //IV. Natural Sciences(9 hrs. GE) & (2hrs ABET)
        c.add(new Course("BIOS_110", "BIO", "NONE", "NONE"));
@@ -28,39 +28,43 @@ public class Courses {
        ///----TODO-----
        
        //V. Humanities(9 hrs.)
-       c.add(new Course("COMM_135", "HUMAN", "NONE", "NONE"));
+       c.add(new Course("COMM_135", "HUMAN", "ENGL_105", "NONE"));
        c.add(new Course("HIST", "GRID", "NONE", "NONE"));//HIST_105, HIST_106, HIST_107, HIST_145, HIST_146
-       c.add(new Course("ENGL_2XX", "ENGL", "NONE", "NONE"));
+       c.add(new Course("ENGL_2XX", "ENGL", "ENGL_115", "NONE"));
        
        //General Electives(16 hrs.)
        //----TODO-----
        c.add(new Course("FS_104", "FS", "NONE", "NONE"));//OR
-       //c.add(new Course("General_Electives", "GRID", "NONE", "NONE"));
+       c.add(new Course("General_Electives", "GRID", "NONE", "NONE"));
        
        //Program Requirements (46 hrs.)
-       c.add(new Course("CSC_135", "CSC", "NONE", "NONE"));
-       c.add(new Course("CSC_145", "CSC", "NONE", "NONE"));
-       c.add(new Course("CSC_242", "CSC", "NONE", "NONE"));
-       c.add(new Course("CSC_285", "CSC", "NONE", "NONE"));
-       c.add(new Course("CSC_315", "CSC", "NONE", "NONE"));
-       c.add(new Course("CSC_345", "CSC", "NONE", "NONE"));
-       c.add(new Course("CSC_346", "CSC", "NONE", "NONE"));
-       c.add(new Course("CSC_382", "CSC", "NONE", "NONE"));
-       c.add(new Course("CSC_405", "CSC", "NONE", "NONE"));
-       c.add(new Course("CSC_460", "CSC", "NONE", "NONE"));
-       c.add(new Course("CSC_480", "CSC", "NONE", "NONE"));
-       c.add(new Course("CSC_481", "CSC", "NONE", "NONE"));
-       c.add(new Course("CSC_485", "CSC", "NONE", "NONE"));
+       
+       c.add(new Course("CSC_115", "CSC", "NONE", "NONE"));//not in curriculum
+       c.add(new Course("CSC_120", "CSC", "CSC_115", "MATH_121"));//not in curriculum
+       
+       c.add(new Course("CSC_135", "CSC", "CSC_115", "MATH_121"));
+       c.add(new Course("CSC_145", "CSC", "CSC_135", "NONE"));
+       c.add(new Course("CSC_242", "CSC", "CSC_135", "CSC_145,MATH_201"));
+       c.add(new Course("CSC_285", "CSC", "CSC_145,MATH_201", "NONE"));
+       c.add(new Course("CSC_315", "CSC", "CSC_145,MATH_201", "NONE"));
+       c.add(new Course("CSC_345", "CSC", "CSC_145", "NONE"));//CHECK THIS
+       c.add(new Course("CSC_346", "CSC", "CSC_345", "NONE"));
+       c.add(new Course("CSC_382", "CSC", "CSC_242", "CSC_345"));
+       c.add(new Course("CSC_405", "CSC", "CSC_345", "NONE"));
+       c.add(new Course("CSC_460", "CSC", "CSC_345,MATH_254", "NONE"));
+       c.add(new Course("CSC_480", "CSC", "CSC_345", "NONE"));
+       c.add(new Course("CSC_481", "CSC", "CSC_480,CSC_315,CSC_460", "NONE"));
+       c.add(new Course("CSC_485", "CSC", "CSC_345", "NONE"));
        
        //Electives(9 hrs.)
        c.add(new Course("CSC_400+", "GRID", "NONE", "NONE"));
        
        //Additional Degree Requirements(15 hrs.)
-       c.add(new Course("ENGL_325", "ENGL", "NONE", "NONE"));
+       c.add(new Course("ENGL_325", "ENGL", "ENGL_115", "NONE"));
        c.add(new Course("SCIENCE", "GRID", "NONE", "NONE"));//FIX THIS SHIT, BRAH
-       c.add(new Course("MATH_201", "MATH", "NONE", "NONE"));
-       c.add(new Course("MATH_254", "MATH", "NONE", "NONE"));
-       c.add(new Course("MATH_260", "MATH", "NONE", "NONE"));
+       c.add(new Course("MATH_201", "MATH", "MATH_121", "NONE"));
+       c.add(new Course("MATH_254", "MATH", "MATH_221", "NONE"));
+       c.add(new Course("MATH_260", "MATH", "MATH121,CSC_115", "NONE"));
     }
     
     public Course getCourseByName(String name){
