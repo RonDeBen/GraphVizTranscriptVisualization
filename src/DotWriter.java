@@ -14,11 +14,7 @@ public class DotWriter {
          String s = "digraph g{\n";
          
          for(int k = 0; k < c.size(); k++){
-             s += "\t\"" + c.get(k).getTitle() + 
-                  "\" [" + statusColorNode(c.get(k).getStatus()) + 
-                  ",style=filled," + subjShape(c.get(k)) + 
-                  "," + availableColor(c.get(k).isAvailable()) + 
-                  "]\n";
+            s += drawNode(c.get(k));
          }
          
          for(int k = 0; k < c.size(); k++){
@@ -27,6 +23,29 @@ public class DotWriter {
          s += "}";
          return s;
      }
+    
+    private String drawNode(Course c){
+        String s = "";
+        if(c.getTitle().equalsIgnoreCase("GEN_ED")){
+            int subs = Integer.parseInt(c.getStatus());
+            String gened = "GeneralEducation";
+            s = "\tGEN_ED[shape=\"none\", label=<\n" +
+                 "<table cellpadding=\"0\" cellborder=\"0\" cellspacing=\"0\" border=\"0\">\n" +
+                 "<tr>\n" +
+                 "<td bgcolor=\"green\">" + gened.substring(0,subs) + "</td>\n" +
+                 "<td bgcolor=\"red\">" + gened.substring(subs, gened.length()) +"</td>\n" + 
+                 "</tr>\n" +
+                 "</table>\n" +
+                 ">]\n";
+        }else {
+            s = "\t" + c.getTitle() + 
+                    " [" + statusColorNode(c.getStatus()) + 
+                    ",style=filled," + subjShape(c) + 
+                    "," + availableColor(c.isAvailable()) + 
+                    "]\n";
+    }
+        return s;
+}
      private String subjShape(Course course){
          String s = "";
          String subj = course.getSubj();

@@ -35,9 +35,7 @@ public class Courses {
        c.add(new Course("ENGL_2XX", "ENGL", "ENGL_115", "NONE"));
        
        //General Electives(16 hrs.)
-       //----TODO-----
-       c.add(new Course("FS_104", "FS", "NONE", "NONE"));//OR
-       c.add(new Course("General_Electives", "GRID", "NONE", "NONE"));
+       c.add(new Course("GEN_ED", "GRID", "NONE", "NONE"));
        
        //Program Requirements (46 hrs.)
        c.add(new Course("CSC_115", "CSC", "NONE", "NONE"));//not in curriculum
