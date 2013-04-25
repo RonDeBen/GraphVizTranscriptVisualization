@@ -65,8 +65,8 @@ public class Courses {
     
     public Course getCourseByName(String name){
         int i = 0;
-        while(i < c.size()-1){
-            if(c.get(i).getTitle() == name){
+        while(i < c.size()){
+            if(c.get(i).getTitle().equalsIgnoreCase(name)){
                 return c.get(i);
             }
             i++;
@@ -75,10 +75,13 @@ public class Courses {
      }
     
     public void read(Scanner fileScan){
-        while(fileScan.hasNext())
-                getCourseByName("ENGL_105").setStatus(fileScan.next().toString());
+        while(fileScan.hasNext()){
+                getCourseByName(fileScan.next()).setStatus(fileScan.next());
             }
 }
-    
+    public void write(){
+        for(int k = 0; k < c.size(); k++){ System.out.println(c.get(k));}
+    }
+}
     
 

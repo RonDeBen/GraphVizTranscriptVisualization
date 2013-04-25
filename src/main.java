@@ -17,7 +17,7 @@ public class main {
         
         Courses c = new Courses();
         c.read(fileScan);
-        System.out.println(c.getCourseByName("CSC_135").getTitle());
+        c.write();
         
         outFile.println("");
         outFile.close();

@@ -18,6 +18,14 @@ public class Course {
         this.coReqs = coReqs;
         available = false;
     }   
+
+    @Override
+    public String toString() {
+        return "Course{" + "title=" + title + ", subj=" + subj + ", status=" + status + ", preReqs=" + preReqs + ", coReqs=" + coReqs + ", available=" + available + '}';
+    }
+    
+    
+    
     
     public String getTitle() {
         return title;
