@@ -65,7 +65,7 @@ public class DotWriter {
                 s = "fillcolor=white";
                 break;
             case "1":
-                s = "fillcolor=yellow";
+                s = "fillcolor=orange";
                 break;
             case "2":
                 s = "fillcolor=green";
@@ -90,7 +90,7 @@ public class DotWriter {
                 s = "color=red";
                 break;
             case "1":
-                s = "color=yellow";
+                s = "color=orange";
                 break;
             case "2":
                 s = "color=green";
@@ -109,6 +109,13 @@ public class DotWriter {
               s += "\t" + temp[k] + " -> " + c.getTitle() + " [" + statusColorArrow(courses.getCourseByName(temp[k]).getStatus()) + "]\n";
           }
       }
+      if(!c.coReqs.equalsIgnoreCase("NONE")){
+          String[] temp = c.getCoReqs().split(",");
+          for(int k = 0; k < temp.length; k++){
+              s += "\t" + temp[k] + " -> " + c.getTitle()  + " [style=dashed,dir=both," + statusColorArrow(courses.getCourseByName(temp[k]).getStatus()) + "]\n";
+          }
+      }
+      
       return s;
      }
 }
