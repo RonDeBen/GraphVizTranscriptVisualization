@@ -12,11 +12,13 @@ public class main {
     
     public static void main(String[] args) throws IOException {
         
-        Scanner fileScan = new Scanner(new File("transcript.txt"));
+        Scanner fileScan = new Scanner(new File("curriculum.txt"));
         outFile = new PrintWriter (new FileWriter ("transcript.dot"));
         
-        Courses c = new Courses();
+        Courses c = new Courses(fileScan);
         DotWriter dw = new DotWriter(c);
+        
+        fileScan = new Scanner(new File("transcript.txt"));
         
         c.read(fileScan);
         c.findAvailableClasses();

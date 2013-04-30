@@ -6,7 +6,11 @@ import java.util.Scanner;
 public class Courses {
     
     public ArrayList<Course> c = new ArrayList<Course>();
-    
+    public Courses(Scanner fileScan){
+        while(fileScan.hasNext()){
+            c.add(new Course(fileScan.next(), fileScan.next(), fileScan.next(), fileScan.next()));
+        }
+    }
     public Courses(){
        //I. ENGLISH COMPOSITION(6 hrs)
        c.add(new Course("ENGL_105", "ENGL", "NONE", "NONE"));
