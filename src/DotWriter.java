@@ -29,7 +29,7 @@ public class DotWriter {
         if(c.getTitle().equalsIgnoreCase("GEN_ED")){
             int subs = Integer.parseInt(c.getStatus());
             String gened = "GeneralEducation";
-            s = "\tGEN_ED[shape=\"none\", label=<\n" +
+            s = "\tGEN_ED[shape=\"none\", fontsize=20, label=<\n" +
                  "<table cellpadding=\"0\" cellborder=\"0\" cellspacing=\"0\" border=\"0\">\n" +
                  "<tr>\n" +
                  "<td bgcolor=\"green\">" + gened.substring(0,subs) + "</td>\n" +

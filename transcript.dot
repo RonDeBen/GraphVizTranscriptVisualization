@@ -12,7 +12,7 @@ digraph g{
 	COMM_135 [fillcolor=white,style=filled,shape=invtriangle,color=blue]
 	HIST [fillcolor=white,style=filled,shape=tripleoctagon,color=blue]
 	ENGL_2XX [fillcolor=green,style=filled,shape=triangle,color=blue]
-	GEN_ED[shape="none", label=<
+	GEN_ED[shape="none", fontsize=20, label=<
 <table cellpadding="0" cellborder="0" cellspacing="0" border="0">
 <tr>
 <td bgcolor="green">GeneralEd</td>
