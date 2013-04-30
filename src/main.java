@@ -22,6 +22,7 @@ public class main {
         
         c.read(fileScan);
         c.findAvailableClasses();
+        c.findSubgraphs();
         
         String s = dw.write();
         

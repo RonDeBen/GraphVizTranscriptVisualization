@@ -1,18 +1,22 @@
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 
 public class Courses {
     
     public ArrayList<Course> c = new ArrayList<Course>();
+    public Map<String, String> smap = new HashMap<String, String>();
+    public ArrayList<String> subgraphNames = new ArrayList<String>();
     public Courses(Scanner fileScan){
         while(fileScan.hasNext()){
-            c.add(new Course(fileScan.next(), fileScan.next(), fileScan.next(), fileScan.next()));
+            c.add(new Course(fileScan.next(), fileScan.next(), fileScan.next(), fileScan.next(), fileScan.next()));
         }
     }
     public Courses(){
-       //I. ENGLISH COMPOSITION(6 hrs)
+       /*//I. ENGLISH COMPOSITION(6 hrs)
        c.add(new Course("ENGL_105", "ENGL", "NONE", "NONE"));
        c.add(new Course("ENGL_115", "ENGL", "ENGL_105", "NONE"));
        
@@ -67,12 +71,21 @@ public class Courses {
        c.add(new Course("SCIENCE", "GRID", "NONE", "NONE"));//FIX THIS SHIT, BRAH
        c.add(new Course("MATH_201", "MATH", "MATH_121", "NONE"));
        c.add(new Course("MATH_254", "MATH", "MATH_221", "NONE"));
-       c.add(new Course("MATH_260", "MATH", "MATH_121,CSC_115", "NONE"));
+       c.add(new Course("MATH_260", "MATH", "MATH_121,CSC_115", "NONE"));*/
     }
 
     public ArrayList<Course> getC() {
         return c;
     }
+
+    public Map<String, String> getSmap() {
+        return smap;
+    }
+
+    public ArrayList<String> getSubgraphNames() {
+        return subgraphNames;
+    }
+    
     
     public Course getCourseByName(String name){
         int i = 0;
@@ -108,6 +121,33 @@ public class Courses {
             }
         }
         
+    }
+    
+    public void findSubgraphs(){
+        ArrayList<String> contains = new ArrayList<String>();
+        String temp = "";
+        boolean add = false;
+        for(int k = 0; k < c.size(); k++){
+            add = true;
+            for(int j = 0; j < subgraphNames.size();j++){
+                if(c.get(k).getSubgraph().equalsIgnoreCase(subgraphNames.get(j)))
+                    add = false;
+            }
+            if(add)
+                subgraphNames.add(c.get(k).getSubgraph());
+        }
+        
+        for(int k = 0; k < subgraphNames.size(); k++){
+            temp = "";
+            for(int j = 0; j < c.size(); j++){
+                if(c.get(j).getSubgraph().equalsIgnoreCase(subgraphNames.get(k)))
+                    temp += "\"" + c.get(j).getTitle() + "\";";
+            }
+            contains.add(temp);
+        }
+        for(int k = 0; k < subgraphNames.size(); k++){
+            smap.put(subgraphNames.get(k), contains.get(k));
+        }
     }
 }
     

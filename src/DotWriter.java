@@ -12,7 +12,7 @@ public class DotWriter {
      
     public String write(){
          String s = "digraph g{\n";
-         
+         s += drawSubgraphs();
          for(int k = 0; k < c.size(); k++){
             s += drawNode(c.get(k));
          }
@@ -29,7 +29,7 @@ public class DotWriter {
         if(c.getTitle().equalsIgnoreCase("GEN_ED")){
             int subs = Integer.parseInt(c.getStatus());
             String gened = "GeneralEducation";
-            s = "\tGEN_ED[shape=\"none\", fontsize=20, label=<\n" +
+            s = "\t\"GEN_ED\"[shape=\"none\", fontsize=20, label=<\n" +
                  "<table cellpadding=\"0\" cellborder=\"0\" cellspacing=\"0\" border=\"0\">\n" +
                  "<tr>\n" +
                  "<td bgcolor=\"green\">" + gened.substring(0,subs) + "</td>\n" +
@@ -38,8 +38,8 @@ public class DotWriter {
                  "</table>\n" +
                  ">]\n";
         }else {
-            s = "\t" + c.getTitle() + 
-                    " [" + statusColorNode(c.getStatus()) + 
+            s = "\t\"" + c.getTitle() + 
+                    "\" [" + statusColorNode(c.getStatus()) + 
                     ",style=filled," + subjShape(c) + 
                     "," + availableColor(c.isAvailable()) + 
                     "]\n";
@@ -121,20 +121,66 @@ public class DotWriter {
      private String drawArrow(Course c){
       String s = "";
       if(c.preReqs.equalsIgnoreCase("NONE")){
-          s = "\tSTART -> " + c.getTitle() + " [color=green]\n";
+          //s = "\t\"START\" -> \"" + c.getTitle() + "\" [color=green]\n";
       }else {
           String[] temp = c.getPreReqs().split(",");
           for(int k = 0; k < temp.length; k++){
-              s += "\t" + temp[k] + " -> " + c.getTitle() + " [" + statusColorArrow(courses.getCourseByName(temp[k]).getStatus()) + "]\n";
+              s += "\t\"" + temp[k] + "\" -> \"" + c.getTitle() + "\" [" + statusColorArrow(courses.getCourseByName(temp[k]).getStatus()) + "]\n";
           }
       }
       if(!c.coReqs.equalsIgnoreCase("NONE")){
           String[] temp = c.getCoReqs().split(",");
           for(int k = 0; k < temp.length; k++){
-              s += "\t" + temp[k] + " -> " + c.getTitle()  + " [style=dashed,dir=both," + statusColorArrow(courses.getCourseByName(temp[k]).getStatus()) + "]\n";
+              s += "\t\"" + temp[k] + "\" -> \"" + c.getTitle()  + "\" [style=dashed,dir=both," + statusColorArrow(courses.getCourseByName(temp[k]).getStatus()) + "]\n";
           }
       }
       
       return s;
+     }
+     private String subgraphColor(String sub){
+         String s = "";
+         
+         switch(sub){
+            case "HUMAN":
+                s = "yellow";
+                break;
+            case "ENGL":
+                s = "darkgoldenrod1";
+                break;
+            case "PROG":
+                s = "white";
+                break;
+            case "GEN":
+                s = "chartreuse";
+                break;
+            case "SBS":
+                s = "black";
+                break;
+            case "NAT":
+                s = "purple";
+                break; 
+            case "MATH":
+                s = "brown";
+                break;
+            case "ADD":
+                s = "grey";
+                break;                
+        }
+         
+         return s;
+     }
+     
+     private String drawSubgraphs(){
+         String s = new String();
+         for(int k = 0; k < courses.getSubgraphNames().size(); k++){
+             s += "\tsubgraph cluster_" + k 
+                 + "{\n\t\t"
+                 + "label = \"" + courses.getSubgraphNames().get(k) + "\";\n\t\t" 
+                 + courses.getSmap().get(courses.getSubgraphNames().get(k))
+                 + "\n\t\tstyle=filled;\n\t\tfillcolor="
+                 + subgraphColor(courses.getSubgraphNames().get(k))
+                 + ";\n\t}\n";
+         }
+         return s;
      }
 }

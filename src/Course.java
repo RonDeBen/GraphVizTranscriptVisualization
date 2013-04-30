@@ -1,13 +1,15 @@
 public class Course {
     String title = "";
     String subj = "";
+    String subgraph = "";
     String status = "";
     String preReqs = "";
     String coReqs = "";
     boolean available = false;
 
-    public Course(String title, String subj, String preReqs, String coReqs) {
+    public Course(String title, String subgraph, String subj, String preReqs, String coReqs) {
         this.title = title;
+        this.subgraph = subgraph;
         this.subj = subj;
         this.preReqs = preReqs;
         this.coReqs = coReqs;
@@ -23,6 +25,10 @@ public class Course {
         return title;
     }
 
+    public String getSubgraph() {
+        return subgraph;
+    }
+    
     public String getSubj() {
         return subj;
     }
@@ -48,6 +54,10 @@ public class Course {
         this.title = title;
     }
 
+    public void setSubgraph(String subgraph) {
+        this.subgraph = subgraph;
+    }
+    
     public void setSubj(String subj) {
         this.subj = subj;
     }
