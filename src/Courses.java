@@ -141,7 +141,7 @@ public class Courses {
             temp = "";
             for(int j = 0; j < c.size(); j++){
                 if(c.get(j).getSubgraph().equalsIgnoreCase(subgraphNames.get(k)))
-                    temp += "\"" + c.get(j).getTitle() + "\";";
+                    temp += c.get(j).getTitle() + " ";
             }
             contains.add(temp);
         }

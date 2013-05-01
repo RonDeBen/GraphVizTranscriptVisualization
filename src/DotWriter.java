@@ -11,11 +11,11 @@ public class DotWriter {
      }
      
     public String write(){
-         String s = "digraph g{\n";
+         String s = "digraph g{\n\trankdir = LR\n";
          s += drawSubgraphs();
-         for(int k = 0; k < c.size(); k++){
+         /*for(int k = 0; k < c.size(); k++){
             s += drawNode(c.get(k));
-         }
+         }*/
          
          for(int k = 0; k < c.size(); k++){
              s += drawArrow(c.get(k));
@@ -29,20 +29,20 @@ public class DotWriter {
         if(c.getTitle().equalsIgnoreCase("GEN_ED")){
             int subs = Integer.parseInt(c.getStatus());
             String gened = "GeneralEducation";
-            s = "\t\"GEN_ED\"[shape=\"none\", fontsize=20, label=<\n" +
+            s = "\"GEN_ED\"[shape=\"none\", fontsize=20, label=<\n" +
                  "<table cellpadding=\"0\" cellborder=\"0\" cellspacing=\"0\" border=\"0\">\n" +
                  "<tr>\n" +
                  "<td bgcolor=\"green\">" + gened.substring(0,subs) + "</td>\n" +
                  "<td bgcolor=\"red\">" + gened.substring(subs, gened.length()) +"</td>\n" + 
                  "</tr>\n" +
                  "</table>\n" +
-                 ">]\n";
+                 ">]";
         }else {
-            s = "\t\"" + c.getTitle() + 
+            s = "\"" + c.getTitle() + 
                     "\" [" + statusColorNode(c.getStatus()) + 
                     ",style=filled," + subjShape(c) + 
                     "," + availableColor(c.isAvailable()) + 
-                    "]\n";
+                    "]";
     }
         return s;
 }
@@ -169,14 +169,22 @@ public class DotWriter {
          
          return s;
      }
-     
+     private String subgraphNodes(String subn){
+      String s = "";
+      String[] names = subn.split(" ");
+      for(String node : names){
+          s += "\n\t\t"+ drawNode(courses.getCourseByName(node));
+      }
+      
+      return s;
+     }
      private String drawSubgraphs(){
-         String s = new String();
+         String s = "";
          for(int k = 0; k < courses.getSubgraphNames().size(); k++){
              s += "\tsubgraph cluster_" + k 
                  + "{\n\t\t"
-                 + "label = \"" + courses.getSubgraphNames().get(k) + "\";\n\t\t" 
-                 + courses.getSmap().get(courses.getSubgraphNames().get(k))
+                 + "label = \"" + courses.getSubgraphNames().get(k) + "\";" 
+                 + subgraphNodes(courses.getSmap().get(courses.getSubgraphNames().get(k)))
                  + "\n\t\tstyle=filled;\n\t\tfillcolor="
                  + subgraphColor(courses.getSubgraphNames().get(k))
                  + ";\n\t}\n";

@@ -1,67 +1,47 @@
 digraph g{
+	rankdir = LR
 	subgraph cluster_0{
 		label = "ENGL";
-		"ENGL_105";"ENGL_115";
+		"ENGL_105" [fillcolor=green,style=filled,shape=triangle,color=blue]
+		"ENGL_115" [fillcolor=green,style=filled,shape=triangle,color=blue]
 		style=filled;
 		fillcolor=darkgoldenrod1;
 	}
 	subgraph cluster_1{
 		label = "SBS";
-		"ECON_2XX";"SBS";
+		"ECON_2XX" [fillcolor=green,style=filled,shape=box,color=blue]
+		"SBS" [fillcolor=orange,style=filled,shape=tripleoctagon,color=blue]
 		style=filled;
 		fillcolor=black;
 	}
 	subgraph cluster_2{
 		label = "MATH";
-		"MATH_121";"MATH_122";"MATH_221";"MATH_222";
+		"MATH_121" [fillcolor=green,style=filled,shape=septagon,color=blue]
+		"MATH_122" [fillcolor=white,style=filled,shape=septagon,color=blue]
+		"MATH_221" [fillcolor=white,style=filled,shape=septagon,color=red]
+		"MATH_222" [fillcolor=white,style=filled,shape=septagon,color=red]
 		style=filled;
 		fillcolor=brown;
 	}
 	subgraph cluster_3{
 		label = "NAT";
-		"BIOS_110";"PHYS";
+		"BIOS_110" [fillcolor=white,style=filled,shape=trapezium,color=blue]
+		"PHYS" [fillcolor=white,style=filled,shape=tripleoctagon,color=blue]
 		style=filled;
 		fillcolor=purple;
 	}
 	subgraph cluster_4{
 		label = "HUMAN";
-		"COMM_135";"HIST";"ENGL_2XX";
+		"COMM_135" [fillcolor=white,style=filled,shape=invtriangle,color=blue]
+		"HIST" [fillcolor=white,style=filled,shape=tripleoctagon,color=blue]
+		"ENGL_2XX" [fillcolor=green,style=filled,shape=triangle,color=blue]
 		style=filled;
 		fillcolor=yellow;
 	}
 	subgraph cluster_5{
 		label = "GEN";
-		"FS_104";"GEN_ED";
-		style=filled;
-		fillcolor=chartreuse;
-	}
-	subgraph cluster_6{
-		label = "PROG";
-		"CSC_115";"CSC_120";"CSC_135";"CSC_145";"CSC_242";"CSC_285";"CSC_315";"CSC_345";"CSC_346";"CSC_382";"CSC_405";"CSC_460";"CSC_480";"CSC_481";"CSC_485";"CSC_400";
-		style=filled;
-		fillcolor=white;
-	}
-	subgraph cluster_7{
-		label = "ADD";
-		"ENGL_325";"SCIENCE";"MATH_201";"MATH_254";"MATH_260";
-		style=filled;
-		fillcolor=grey;
-	}
-	"ENGL_105" [fillcolor=green,style=filled,shape=triangle,color=blue]
-	"ENGL_115" [fillcolor=green,style=filled,shape=triangle,color=blue]
-	"ECON_2XX" [fillcolor=green,style=filled,shape=box,color=blue]
-	"SBS" [fillcolor=orange,style=filled,shape=tripleoctagon,color=blue]
-	"MATH_121" [fillcolor=green,style=filled,shape=septagon,color=blue]
-	"MATH_122" [fillcolor=white,style=filled,shape=septagon,color=blue]
-	"MATH_221" [fillcolor=white,style=filled,shape=septagon,color=red]
-	"MATH_222" [fillcolor=white,style=filled,shape=septagon,color=red]
-	"BIOS_110" [fillcolor=white,style=filled,shape=trapezium,color=blue]
-	"PHYS" [fillcolor=white,style=filled,shape=tripleoctagon,color=blue]
-	"COMM_135" [fillcolor=white,style=filled,shape=invtriangle,color=blue]
-	"HIST" [fillcolor=white,style=filled,shape=tripleoctagon,color=blue]
-	"ENGL_2XX" [fillcolor=green,style=filled,shape=triangle,color=blue]
-	"FS_104" [fillcolor=white,style=filled,shape=tripleoctagon,color=blue]
-	"GEN_ED"[shape="none", fontsize=20, label=<
+		"FS_104" [fillcolor=white,style=filled,shape=tripleoctagon,color=blue]
+		"GEN_ED"[shape="none", fontsize=20, label=<
 <table cellpadding="0" cellborder="0" cellspacing="0" border="0">
 <tr>
 <td bgcolor="green">GeneralEd</td>
@@ -69,27 +49,40 @@ digraph g{
 </tr>
 </table>
 >]
-	"CSC_115" [fillcolor=white,style=filled,shape=ellipse,color=blue]
-	"CSC_120" [fillcolor=green,style=filled,shape=ellipse,color=red]
-	"CSC_135" [fillcolor=green,style=filled,shape=ellipse,color=red]
-	"CSC_145" [fillcolor=green,style=filled,shape=ellipse,color=blue]
-	"CSC_242" [fillcolor=orange,style=filled,shape=ellipse,color=blue]
-	"CSC_285" [fillcolor=white,style=filled,shape=ellipse,color=blue]
-	"CSC_315" [fillcolor=white,style=filled,shape=ellipse,color=blue]
-	"CSC_345" [fillcolor=orange,style=filled,shape=ellipse,color=blue]
-	"CSC_346" [fillcolor=white,style=filled,shape=ellipse,color=red]
-	"CSC_382" [fillcolor=white,style=filled,shape=ellipse,color=red]
-	"CSC_405" [fillcolor=white,style=filled,shape=ellipse,color=red]
-	"CSC_460" [fillcolor=white,style=filled,shape=ellipse,color=red]
-	"CSC_480" [fillcolor=white,style=filled,shape=ellipse,color=red]
-	"CSC_481" [fillcolor=white,style=filled,shape=ellipse,color=red]
-	"CSC_485" [fillcolor=white,style=filled,shape=ellipse,color=red]
-	"CSC_400" [fillcolor=green,style=filled,shape=tripleoctagon,color=blue]
-	"ENGL_325" [fillcolor=white,style=filled,shape=triangle,color=blue]
-	"SCIENCE" [fillcolor=white,style=filled,shape=tripleoctagon,color=blue]
-	"MATH_201" [fillcolor=green,style=filled,shape=septagon,color=blue]
-	"MATH_254" [fillcolor=white,style=filled,shape=septagon,color=red]
-	"MATH_260" [fillcolor=orange,style=filled,shape=septagon,color=red]
+		style=filled;
+		fillcolor=chartreuse;
+	}
+	subgraph cluster_6{
+		label = "PROG";
+		"CSC_115" [fillcolor=white,style=filled,shape=ellipse,color=blue]
+		"CSC_120" [fillcolor=green,style=filled,shape=ellipse,color=red]
+		"CSC_135" [fillcolor=green,style=filled,shape=ellipse,color=red]
+		"CSC_145" [fillcolor=green,style=filled,shape=ellipse,color=blue]
+		"CSC_242" [fillcolor=orange,style=filled,shape=ellipse,color=blue]
+		"CSC_285" [fillcolor=white,style=filled,shape=ellipse,color=blue]
+		"CSC_315" [fillcolor=white,style=filled,shape=ellipse,color=blue]
+		"CSC_345" [fillcolor=orange,style=filled,shape=ellipse,color=blue]
+		"CSC_346" [fillcolor=white,style=filled,shape=ellipse,color=red]
+		"CSC_382" [fillcolor=white,style=filled,shape=ellipse,color=red]
+		"CSC_405" [fillcolor=white,style=filled,shape=ellipse,color=red]
+		"CSC_460" [fillcolor=white,style=filled,shape=ellipse,color=red]
+		"CSC_480" [fillcolor=white,style=filled,shape=ellipse,color=red]
+		"CSC_481" [fillcolor=white,style=filled,shape=ellipse,color=red]
+		"CSC_485" [fillcolor=white,style=filled,shape=ellipse,color=red]
+		"CSC_400" [fillcolor=green,style=filled,shape=tripleoctagon,color=blue]
+		style=filled;
+		fillcolor=white;
+	}
+	subgraph cluster_7{
+		label = "ADD";
+		"ENGL_325" [fillcolor=white,style=filled,shape=triangle,color=blue]
+		"SCIENCE" [fillcolor=white,style=filled,shape=tripleoctagon,color=blue]
+		"MATH_201" [fillcolor=green,style=filled,shape=septagon,color=blue]
+		"MATH_254" [fillcolor=white,style=filled,shape=septagon,color=red]
+		"MATH_260" [fillcolor=orange,style=filled,shape=septagon,color=red]
+		style=filled;
+		fillcolor=grey;
+	}
 	"ENGL_105" -> "ENGL_115" [color=green]
 	"MATH_121" -> "ECON_2XX" [color=green]
 	"MATH_121" -> "MATH_122" [color=green]
